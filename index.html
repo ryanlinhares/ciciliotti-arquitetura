@@ -430,21 +430,25 @@
   @media (min-width: 1024px) {
     .sobre-grid { grid-template-columns: 1fr 1.1fr; gap: 90px; }
   }
-  .sobre-portrait {
+  .sobre-portrait-wrap {
     position: relative;
+    padding-bottom: 22px;
+  }
+  .sobre-portrait {
     aspect-ratio: 4/5;
     overflow: hidden;
     background: var(--bg-2);
   }
   .sobre-portrait img { width: 100%; height: 100%; object-fit: cover; }
   .sobre-badge {
-    position: absolute; bottom: -16px; left: -16px;
+    position: absolute; bottom: 0; left: 0;
     background: var(--bg);
     padding: 14px 20px;
     display: flex; align-items: center; gap: 14px;
   }
   @media (min-width: 1024px) {
-    .sobre-badge { bottom: -22px; left: -22px; }
+    .sobre-portrait-wrap { padding-bottom: 28px; }
+    .sobre-badge { left: -22px; }
   }
   .sobre-badge .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
   .sobre-badge span {
@@ -1264,10 +1268,12 @@
   <section id="sobre" aria-labelledby="sobre-title">
     <div class="container-wide">
       <div class="sobre-grid">
-        <div class="sobre-portrait img-hover">
-          <img src="assets/img/sobre.jpeg"
-               alt="Cozinha assinada por Livia Ciciliotti, com bancada em pedra e marcenaria amadeirada"
-               loading="lazy" decoding="async">
+        <div class="sobre-portrait-wrap">
+          <div class="sobre-portrait img-hover">
+            <img src="assets/img/sobre.jpeg"
+                 alt="Cozinha assinada por Livia Ciciliotti, com bancada em pedra e marcenaria amadeirada"
+                 loading="lazy" decoding="async">
+          </div>
           <div class="sobre-badge">
             <span class="dot" aria-hidden="true"></span>
             <span>CAU A123456-0 · 7 anos de atelier</span>
