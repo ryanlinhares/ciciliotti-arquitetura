@@ -687,9 +687,10 @@
     .service:nth-child(n+3) { border-top: 1px solid var(--line); }
   }
   @media (min-width: 1024px) {
-    .services { grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
-    .service { padding: 48px 36px 56px; border-right: 1px solid var(--line); border-top: 0; min-height: 460px; }
+    .services { grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+    .service { padding: 48px 28px 56px; border-right: 1px solid var(--line); border-top: 0; min-height: 460px; }
     .service:nth-child(2n) { border-right: 1px solid var(--line); }
+    .service:nth-child(n+3) { border-top: 0; }
     .service:last-child { border-right: 0; }
   }
   .service-head { display: flex; justify-content: space-between; align-items: flex-start; }
@@ -1256,11 +1257,7 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="top" aria-label="Apresentação">
     <div class="hero-bg" aria-hidden="true">
-      <video src="assets/img/hero.mp4"
-             autoplay muted loop playsinline
-             preload="auto">
-        <img src="assets/img/hero.png" alt="">
-      </video>
+      <img src="assets/img/hero.png" alt="" fetchpriority="high" decoding="async">
     </div>
 
     <div class="container-wide hero-inner">
@@ -1302,10 +1299,6 @@
                  alt="Cozinha assinada por Livia Ciciliotti, com bancada em pedra e marcenaria amadeirada"
                  loading="lazy" decoding="async">
           </div>
-          <div class="sobre-badge">
-            <span class="dot" aria-hidden="true"></span>
-            <span>CAU A123456-0 · 7 anos de atelier</span>
-          </div>
         </div>
 
         <div class="sobre-body">
@@ -1315,7 +1308,7 @@
           <div class="sobre-paras">
             <p>Sou Lívia Ciciliotti, arquiteta formada pela Faculdade América, apaixonada por arquitetura de interiores e decoração. Desenvolvo projetos que unem estética, funcionalidade e identidade, criando ambientes que refletem a essência de cada cliente.</p>
             <p style="margin-top:16px">Atendimento presencial na Grande Vitória e Sul do Espírito Santo, e online para todo o Brasil.</p>
-            <p>Cada projeto começa por uma escuta cuidadosa — quem mora ali, como vive, o que sonha. Daí desenham-se ambientes que recebem com leveza, em uma paleta de madeira, fibra, pedra e luz natural.</p>
+            <p>Cada projeto começa por uma conversa. Quero entender quem mora ali, como vive o dia a dia, o que sonha para aquele espaço. A partir disso, os ambientes tomam forma com calma, usando madeira, pedra, fibra e muita luz natural.</p>
           </div>
 
         </div>
@@ -1350,14 +1343,14 @@
           </div>
         </button>
 
-        <button type="button" class="project-card img-hover layout-2" data-project="2" aria-label="Casa VL, Vitória, ES, 2024 — abrir galeria">
+        <button type="button" class="project-card img-hover layout-2" data-project="2" aria-label="Área Goumert SM, Cachoeiro, ES, 2024 — abrir galeria">
           <img src="assets/img/projeto-02.jpg"
-               alt="Sala integrada da Casa VL com tons neutros e marcenaria sob medida"
+               alt="Área Goumert SM com tons neutros e marcenaria sob medida"
                loading="lazy" decoding="async">
           <div class="project-tag">Ver galeria <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
           <div class="project-info">
             <div>
-              <div class="serif project-name">Casa VL</div>
+              <div class="serif project-name">Área Goumert SM</div>
               <div class="project-meta">Interiores · 110 m² · Cachoeiro, ES</div>
             </div>
             <div class="project-year">2024</div>
@@ -1426,7 +1419,7 @@
       <div class="section-head">
         <div>
           <div class="eyebrow section-eyebrow">03 — Como podemos trabalhar juntos</div>
-          <h2 id="servicos-title" class="serif">Três caminhos, um <em>cuidado</em>.</h2>
+          <h2 id="servicos-title" class="serif">Quatro caminhos, um <em>cuidado</em>.</h2>
         </div>
         <p>Do projeto completo ao primeiro empurrão. Cada formato pensado para um momento diferente da sua casa.</p>
       </div>
@@ -1442,7 +1435,7 @@
           <ul>
             <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Estudo preliminar</li>
             <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Projeto executivo</li>
-            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Detalhamento de marcenaria</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Detalhamentos</li>
             <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Acompanhamento de obra</li>
           </ul>
         </article>
@@ -1452,11 +1445,13 @@
             <div class="service-num">02</div>
           </div>
           <h3 class="serif">Consultoria</h3>
-          <div class="service-sub">Online ou presencial</div>
-          <p>Para quem quer melhorar um ambiente sem um projeto completo. Visita técnica, diagnóstico e um caderno de orientações com soluções práticas.</p>
+          <div class="service-sub">Online</div>
+          <p>Para quem quer melhorar um ambiente sem um projeto completo.</p>
           <ul>
-            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Visita única (2h)</li>
-            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Caderno de orientações</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Orientação para tirar as medidas</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Planta de layout</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>3D — Render</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Projeto de marcenaria e/ou marmoraria</li>
             <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Lista de produtos</li>
             <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Indicação de fornecedores</li>
           </ul>
@@ -1471,10 +1466,30 @@
           <div class="service-sub">Plantas e ambientes prontos para baixar</div>
           <p>Plantas e ambientes já desenhados, com lista de materiais e medidas — uma ponte acessível entre o pronto-de-loja e o projeto sob medida.</p>
           <ul>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Casa</li>
             <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Sala</li>
             <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Cozinha</li>
             <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Quarto</li>
             <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Home office</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Lista de compras</li>
+          </ul>
+        </article>
+
+        <article class="service">
+          <div class="service-head">
+            <div class="service-num">04</div>
+          </div>
+          <h3 class="serif">Projeto Arquitetônico</h3>
+          <div class="service-sub">Completo, funcional e personalizado</div>
+          <p>Do conceito à execução: desenvolvimento do projeto arquitetônico com foco em estética, funcionalidade e aproveitamento inteligente dos espaços, para obras novas ou reformas.</p>
+          <ul>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Estudo preliminar</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Anteprojeto</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Projeto executivo</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>3D + Render</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Compatibilização técnica</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Detalhamentos construtivos</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Acompanhamento de obra</li>
           </ul>
         </article>
       </div>
@@ -1624,6 +1639,7 @@
                   <option>Projeto de interiores completo</option>
                   <option>Consultoria</option>
                   <option>Projeto pré-pronto</option>
+                  <option>Projeto arquitetônico</option>
                   <option>Outro</option>
                 </select>
               </div>
@@ -1750,7 +1766,7 @@
       dir: 'assets/img/p1', ext: 'png', count: 20,
     },
     '2': {
-      title: 'Casa VL',
+      title: 'Área Goumert SM',
       sub: 'Interiores · 110 m² · Vitória, ES · 2024',
       dir: 'assets/img/p2', ext: 'jpg', count: 9,
     },
