@@ -497,15 +497,43 @@
   }
   .sobre-body h2 em { font-style: italic; }
   .sobre-paras {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 18px;
     font-size: 15.5px;
     line-height: 1.7;
     color: var(--ink-soft);
   }
-  @media (min-width: 768px) {
-    .sobre-paras { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .sobre-atendimento {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .sobre-atendimento-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .sobre-atendimento-item .dot {
+    width: 6px; height: 6px;
+    border-radius: 999px;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .sobre-atendimento-item strong {
+    display: block;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 2px;
   }
   .stats {
     margin-top: 40px;
@@ -732,7 +760,8 @@
     flex-grow: 1;
   }
   .service ul {
-    margin-top: 24px;
+    margin-top: auto;
+    padding-top: 24px;
     display: flex; flex-direction: column; gap: 0;
   }
   .service li {
@@ -1307,8 +1336,24 @@
 
           <div class="sobre-paras">
             <p>Sou Lívia Ciciliotti, arquiteta formada pela Faculdade América, apaixonada por arquitetura de interiores e decoração. Desenvolvo projetos que unem estética, funcionalidade e identidade, criando ambientes que refletem a essência de cada cliente.</p>
-            <p style="margin-top:16px">Atendimento presencial na Grande Vitória e Sul do Espírito Santo, e online para todo o Brasil.</p>
             <p>Cada projeto começa por uma conversa. Quero entender quem mora ali, como vive o dia a dia, o que sonha para aquele espaço. A partir disso, os ambientes tomam forma com calma, usando madeira, pedra, fibra e muita luz natural.</p>
+          </div>
+
+          <div class="sobre-atendimento">
+            <div class="sobre-atendimento-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <strong>Presencial</strong>
+                Grande Vitória e Sul do Espírito Santo
+              </div>
+            </div>
+            <div class="sobre-atendimento-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <strong>Online</strong>
+                Para todo o Brasil
+              </div>
+            </div>
           </div>
 
         </div>
