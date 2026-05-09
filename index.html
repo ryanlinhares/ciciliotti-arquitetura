@@ -299,7 +299,7 @@
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
   }
-  .hero-bg img {
+  .hero-bg img, .hero-bg video {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
@@ -1224,10 +1224,11 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="top" aria-label="Apresentação">
     <div class="hero-bg" aria-hidden="true">
-      <img src="assets/img/hero.png"
-           alt=""
-           fetchpriority="high"
-           decoding="async">
+      <video src="assets/img/hero.mp4"
+             autoplay muted loop playsinline
+             preload="auto">
+        <img src="assets/img/hero.png" alt="">
+      </video>
     </div>
 
     <div class="container-wide hero-inner">
@@ -1282,20 +1283,6 @@
             <p>Cada projeto começa por uma escuta cuidadosa — quem mora ali, como vive, o que sonha. Daí desenham-se ambientes que recebem com leveza, em uma paleta de madeira, fibra, pedra e luz natural.</p>
           </div>
 
-          <div class="stats">
-            <div>
-              <div class="serif stat-num">80+</div>
-              <div class="stat-label">Projetos entregues</div>
-            </div>
-            <div>
-              <div class="serif stat-num">7</div>
-              <div class="stat-label">Anos de atelier</div>
-            </div>
-            <div>
-              <div class="serif stat-num">2</div>
-              <div class="stat-label">Bases — Vitória / Cachoeiro</div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -1322,7 +1309,7 @@
           <div class="project-info">
             <div>
               <div class="serif project-name">Casa Iriri</div>
-              <div class="project-meta">Residencial · 240 m² · Manguinhos, ES</div>
+              <div class="project-meta">Residencial · 240 m² · Anchieta, ES</div>
             </div>
             <div class="project-year">2025</div>
           </div>
@@ -1336,7 +1323,7 @@
           <div class="project-info">
             <div>
               <div class="serif project-name">Casa VL</div>
-              <div class="project-meta">Interiores · 110 m² · Vitória, ES</div>
+              <div class="project-meta">Interiores · 110 m² · Cachoeiro, ES</div>
             </div>
             <div class="project-year">2024</div>
           </div>
@@ -1364,7 +1351,7 @@
           <div class="project-info">
             <div>
               <div class="serif project-name">Cozinha GC</div>
-              <div class="project-meta">Residencial · 320 m² · Vila Velha, ES</div>
+              <div class="project-meta">Residencial · 320 m² · Cachoeiro, ES</div>
             </div>
             <div class="project-year">2023</div>
           </div>
@@ -1378,7 +1365,7 @@
           <div class="project-info">
             <div>
               <div class="serif project-name">Banheiro Restaurante Itaunas</div>
-              <div class="project-meta">Residencial · 180 m² · Guarapari, ES</div>
+              <div class="project-meta">Residencial · 180 m² · Itaunas, ES</div>
             </div>
             <div class="project-year">2023</div>
           </div>
