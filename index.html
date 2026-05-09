@@ -218,21 +218,33 @@
     transform: translateY(-100%);
     transition: transform 320ms cubic-bezier(.2,.6,.2,1);
     z-index: 40;
-    padding: 96px 24px 32px;
-    box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+    padding: 88px 28px 36px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.12);
   }
   .mobile-drawer[data-open="true"] { transform: translateY(0); }
-  .mobile-drawer ul { display: flex; flex-direction: column; gap: 4px; }
-  .mobile-drawer a {
-    display: block;
-    padding: 16px 4px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
+  .mobile-drawer ul {
+    display: flex; flex-direction: column;
+    list-style: none; margin: 0; padding: 0;
+  }
+  .mobile-drawer ul li a {
+    display: flex; align-items: center;
+    padding: 15px 0;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
     color: var(--ink);
     border-bottom: 1px solid var(--line);
     min-height: 44px;
   }
-  .mobile-drawer .nav-cta { margin-top: 24px; width: 100%; justify-content: center; padding: 16px; }
+  .mobile-drawer ul li a:hover { color: var(--accent); }
+  .mobile-drawer .nav-cta {
+    margin-top: 28px;
+    width: 100%;
+    justify-content: center;
+    padding: 15px 24px;
+    font-size: 13px;
+    color: var(--bg);
+  }
   @media (min-width: 1024px) { .mobile-drawer { display: none; } }
 
   /* ---------- Buttons ---------- */
