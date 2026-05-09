@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- background rounded square -->
+  <rect width="32" height="32" rx="7" fill="#2c2620"/>
+  <!-- L -->
+  <path d="M8 7 L8 22 L15 22" stroke="#f1ebe0" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- C arc -->
+  <path d="M22 10 a6 6 0 1 0 0 12" stroke="#f1ebe0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- leaf accent -->
+  <path d="M15 25 q3 -2 5 -1" stroke="#a8553a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+</svg>
