@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Livia Ciciliotti — Arquitetura</title>
+<meta name="description" content="Livia Ciciliotti — Arquitetura e interiores no Espírito Santo. Projetos feitos com escuta, materiais honestos e luz natural.">
+<meta name="theme-color" content="#f1ebe0">
+<style>
+  /* ---------- Tokens (paleta Sand) ---------- */
+  :root {
+    --bg:        #f1ebe0;
+    --bg-2:      #e7dec9;
+    --bg-3:      #dcceb6;
+    --ink:       #2c2620;
+    --ink-soft:  #5a4f43;
+    --ink-mute:  #8a7d6a;
+    --line:      #bfb19a;
+    --accent:    #a8553a;
+    --accent-2:  #7d8447;
+    --hl:        #ecdfc5;
+  }
+  @supports (color: oklch(0.5 0.1 50)) {
+    :root {
+      --bg:        oklch(0.962 0.012 78);
+      --bg-2:      oklch(0.925 0.018 75);
+      --bg-3:      oklch(0.88  0.025 72);
+      --ink:       oklch(0.22  0.015 55);
+      --ink-soft:  oklch(0.42  0.018 60);
+      --ink-mute:  oklch(0.62  0.020 65);
+      --line:      oklch(0.78  0.020 70);
+      --accent:    oklch(0.52  0.105 45);
+      --accent-2:  oklch(0.48  0.060 110);
+      --hl:        oklch(0.92  0.045 75);
+    }
+  }
+
+  /* ---------- Reset ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  button { font: inherit; }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -100px; left: 16px;
+    background: var(--ink); color: var(--bg);
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    z-index: 200;
+    transition: top 200ms ease;
+  }
+  .skip-link:focus { top: 16px; }
+
+  /* ---------- Tipografia ---------- */
+  .serif {
+    font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+  }
+  .mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-weight: 400;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  em { font-style: italic; }
+  h1, h2, h3, h4 { margin: 0; font-weight: 300; letter-spacing: -0.012em; }
+  p { margin: 0; text-wrap: pretty; }
+
+  /* ---------- Layout ---------- */
+  .container-wide {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  @media (min-width: 768px)  { .container-wide { padding: 0 32px; } }
+  @media (min-width: 1024px) { .container-wide { padding: 0 40px; } }
+
+  /* ---------- Header / Nav ---------- */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 14px 0;
+    transition: background 320ms ease, backdrop-filter 320ms ease, border-color 320ms ease, padding 220ms ease;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+  }
+  .site-header.scrolled {
+    background: rgba(241,235,224,0.86);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+            backdrop-filter: blur(14px) saturate(1.1);
+    border-bottom-color: rgba(191,177,154,0.5);
+    padding: 10px 0;
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo { display: inline-flex; align-items: center; gap: 12px; }
+  .logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
+  .logo-text { display: flex; flex-direction: column; line-height: 1; align-items: flex-start; }
+  .logo-name {
+    font-family: 'Italiana', 'Cormorant Garamond', serif;
+    font-size: 19px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .logo-sub {
+    font-family: 'Italiana', 'Cormorant Garamond', serif;
+    font-size: 9.5px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 5px;
+  }
+  .site-header.hero-dark:not(.scrolled) .logo-name,
+  .site-header.hero-dark:not(.scrolled) .logo-sub { color: #fff; }
+  .site-header.hero-dark:not(.scrolled) .logo-mark .stroke { stroke: #fff; }
+
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: 28px;
+  }
+  @media (min-width: 1024px) {
+    .nav-links { display: flex; gap: 32px; }
+    .logo-name { font-size: 21px; }
+    .logo-sub { font-size: 10px; }
+  }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: 0.005em;
+  }
+  .site-header.hero-dark:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.92); }
+
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border: 1px solid transparent;
+    transition: background 220ms ease, color 220ms ease, transform 220ms ease;
+    min-height: 44px;
+  }
+  .nav-cta:hover { background: var(--accent); }
+  .nav-links a.nav-cta { color: var(--bg); }
+  .site-header.hero-dark:not(.scrolled) .nav-links a.nav-cta {
+    background: #fff;
+    color: var(--ink);
+  }
+  .site-header.hero-dark:not(.scrolled) .nav-links a.nav-cta:hover { background: var(--accent); color: #fff; }
+
+  /* Menu mobile */
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    background: transparent;
+    border: 0;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .site-header.hero-dark:not(.scrolled) .menu-toggle { color: #fff; }
+  @media (min-width: 1024px) { .menu-toggle { display: none; } }
+
+  .menu-toggle .bar { display: block; width: 22px; height: 1.5px; background: currentColor; margin: 3px 0; transition: transform 240ms ease, opacity 200ms ease; }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(4.5px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-4.5px) rotate(-45deg); }
+
+  .mobile-drawer {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    transform: translateY(-100%);
+    transition: transform 320ms cubic-bezier(.2,.6,.2,1);
+    z-index: 40;
+    padding: 96px 24px 32px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+  }
+  .mobile-drawer[data-open="true"] { transform: translateY(0); }
+  .mobile-drawer ul { display: flex; flex-direction: column; gap: 4px; }
+  .mobile-drawer a {
+    display: block;
+    padding: 16px 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    min-height: 44px;
+  }
+  .mobile-drawer .nav-cta { margin-top: 24px; width: 100%; justify-content: center; padding: 16px; }
+  @media (min-width: 1024px) { .mobile-drawer { display: none; } }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 220ms ease, color 220ms ease, border-color 220ms ease, transform 220ms ease;
+    background: transparent;
+    color: var(--ink);
+    min-height: 44px;
+  }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-ghost { border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--ink); background: var(--hl); }
+  .btn-on-dark { background: #fff; color: var(--ink); }
+  .btn-on-dark:hover { background: var(--accent); color: #fff; }
+  .btn-ghost-dark { border-color: rgba(255,255,255,0.4); color: #fff; }
+  .btn-ghost-dark:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+  .btn-arrow { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* ---------- Link underline ---------- */
+  .link-u { position: relative; display: inline-block; }
+  .link-u::after {
+    content: ""; position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms ease;
+  }
+  .link-u:hover::after, .link-u:focus-visible::after { transform: scaleX(1); }
+
+  /* ---------- Image hover ---------- */
+  .img-hover { overflow: hidden; }
+  .img-hover img,
+  .img-hover .img-inner {
+    transition: transform 1200ms cubic-bezier(0.2, 0.6, 0.2, 1), filter 600ms ease;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .img-hover:hover img,
+  .img-hover:focus-visible img {
+    transform: scale(1.04);
+    filter: saturate(1.05) brightness(1.02);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    overflow: hidden;
+    padding: 120px 0 60px;
+    color: #fff;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .hero-bg img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.6) 100%);
+  }
+  .hero-inner { position: relative; z-index: 1; width: 100%; }
+  .hero-eyebrow {
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+    font-size: clamp(38px, 8vw, 104px);
+    line-height: 1.02;
+    letter-spacing: -0.014em;
+    color: #fff;
+    max-width: 18ch;
+    text-wrap: balance;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: #f3deb6;
+  }
+  .hero-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 48px;
+  }
+  .hero-bottom p {
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.86);
+    max-width: 460px;
+  }
+  .hero-actions { display: flex; flex-direction: column; gap: 12px; }
+  .hero-actions .btn { width: 100%; }
+  @media (min-width: 768px) {
+    .hero { padding: 140px 0 80px; }
+    .hero-bottom {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+    .hero-actions { flex-direction: row; gap: 12px; }
+    .hero-actions .btn { width: auto; }
+    .hero-bottom p { font-size: 17px; }
+  }
+  .hero-meta {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-meta {
+      display: block;
+      position: absolute; top: 110px; right: 40px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-align: right;
+      line-height: 1.6;
+      z-index: 1;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 28px; left: 40px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      display: flex; align-items: center; gap: 10px;
+      z-index: 1;
+    }
+    .hero-scroll .line { width: 28px; height: 1px; background: rgba(255,255,255,0.5); }
+  }
+  .hero-scroll { display: none; }
+  @media (min-width: 1024px) { .hero-scroll { display: flex; } }
+
+  /* ---------- Section base ---------- */
+  section { padding: 80px 0 64px; }
+  @media (min-width: 768px)  { section { padding: 110px 0 90px; } }
+  @media (min-width: 1024px) { section { padding: 140px 0 120px; } }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  @media (min-width: 1024px) {
+    .section-head {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+  }
+  .section-head h2 {
+    font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+    font-size: clamp(34px, 6.5vw, 72px);
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+  .section-head h2 em { font-style: italic; }
+  .section-head p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 460px;
+  }
+  .section-eyebrow { margin-bottom: 16px; }
+
+  /* ---------- SOBRE ---------- */
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (min-width: 1024px) {
+    .sobre-grid { grid-template-columns: 1fr 1.1fr; gap: 90px; }
+  }
+  .sobre-portrait {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: var(--bg-2);
+  }
+  .sobre-portrait img { width: 100%; height: 100%; object-fit: cover; }
+  .sobre-badge {
+    position: absolute; bottom: -16px; left: -16px;
+    background: var(--bg);
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  @media (min-width: 1024px) {
+    .sobre-badge { bottom: -22px; left: -22px; }
+  }
+  .sobre-badge .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+  .sobre-badge span {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .sobre-body { padding-top: 8px; }
+  @media (min-width: 1024px) { .sobre-body { padding-top: 40px; } }
+  .sobre-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 5.5vw, 64px);
+    line-height: 1.05;
+    text-wrap: balance;
+    margin-bottom: 32px;
+  }
+  .sobre-body h2 em { font-style: italic; }
+  .sobre-paras {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  @media (min-width: 768px) {
+    .sobre-paras { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  .stats {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  @media (min-width: 1024px) { .stats { margin-top: 56px; gap: 28px; padding-top: 36px; } }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 52px);
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .stat-label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 12px;
+  }
+
+  /* ---------- PROJETOS ---------- */
+  #projetos { background: var(--bg-2); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .project-card {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+    background: var(--bg-3);
+    border: 0;
+    padding: 0;
+    color: inherit;
+    text-align: left;
+    width: 100%;
+    font: inherit;
+  }
+  .project-tag {
+    position: absolute;
+    top: 16px; right: 16px;
+    z-index: 2;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 220ms ease, transform 220ms ease;
+  }
+  .project-tag svg { width: 11px; height: 11px; }
+  .project-card:hover .project-tag,
+  .project-card:focus-visible .project-tag {
+    background: var(--accent);
+    color: #fff;
+  }
+  @media (min-width: 1024px) {
+    .project-tag { top: 20px; right: 22px; }
+  }
+  .project-card img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .project-card::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(34,22,15,0.65) 100%);
+    pointer-events: none;
+  }
+  .project-id {
+    position: absolute; top: 16px; left: 18px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    z-index: 2;
+  }
+  .project-info {
+    position: absolute; bottom: 18px; left: 18px; right: 18px;
+    color: #fff;
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+    z-index: 2;
+  }
+  .project-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+  }
+  .project-meta {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
+    margin-top: 8px;
+  }
+  .project-year {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.78);
+    flex-shrink: 0;
+  }
+  @media (min-width: 768px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .project-name { font-size: 24px; }
+  }
+  @media (min-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 180px;
+      gap: 24px;
+    }
+    .project-card { aspect-ratio: auto; }
+    .project-card.layout-1 { grid-column: span 7; grid-row: span 4; }
+    .project-card.layout-2 { grid-column: span 5; grid-row: span 4; }
+    .project-card.layout-3 { grid-column: span 4; grid-row: span 3; }
+    .project-card.layout-4 { grid-column: span 4; grid-row: span 3; }
+    .project-card.layout-5 { grid-column: span 4; grid-row: span 3; }
+    .project-id { top: 20px; left: 22px; }
+    .project-info { bottom: 22px; left: 22px; right: 22px; }
+    .project-name { font-size: 28px; }
+    .project-meta { font-size: 10.5px; }
+  }
+  .projects-foot {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  @media (min-width: 768px) {
+    .projects-foot { flex-direction: row; justify-content: space-between; align-items: center; margin-top: 56px; }
+  }
+  .projects-foot .ig-line {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .projects-foot .ig-line strong { color: var(--ink); font-weight: 400; }
+
+  /* ---------- SERVIÇOS ---------- */
+  .services {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .service {
+    padding: 40px 0 48px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  @media (min-width: 768px) {
+    .services { grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+    .service { padding: 44px 28px 52px; border-bottom: 0; border-right: 1px solid var(--line); }
+    .service:nth-child(2n) { border-right: 0; }
+    .service:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+  @media (min-width: 1024px) {
+    .services { grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+    .service { padding: 48px 36px 56px; border-right: 1px solid var(--line); border-top: 0; min-height: 460px; }
+    .service:nth-child(2n) { border-right: 1px solid var(--line); }
+    .service:last-child { border-right: 0; }
+  }
+  .service-head { display: flex; justify-content: space-between; align-items: flex-start; }
+  .service-num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+  }
+  .service-badge {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .service h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4.4vw, 38px);
+    line-height: 1.05;
+    margin: 22px 0 8px;
+    text-wrap: balance;
+  }
+  .service-sub {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 18px;
+  }
+  .service p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    flex-grow: 1;
+  }
+  .service ul {
+    margin-top: 24px;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .service li {
+    font-size: 13.5px;
+    color: var(--ink);
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+  }
+  .service li svg { flex-shrink: 0; }
+
+  /* ---------- PROCESSO ---------- */
+  #processo { background: var(--bg-2); }
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .step {
+    padding: 28px 0 0 28px;
+    position: relative;
+    border-left: 1px solid var(--ink);
+    margin-bottom: 8px;
+  }
+  .step::before {
+    content: "";
+    position: absolute;
+    top: -2px; left: -6px;
+    width: 11px; height: 11px;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+  .step:last-child { padding-bottom: 0; }
+  .step-num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+  }
+  .step h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3.5vw, 26px);
+    line-height: 1.15;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    margin: 12px 0 12px;
+  }
+  .step p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  @media (min-width: 1024px) {
+    .steps { grid-template-columns: repeat(5, 1fr); gap: 0; }
+    .step {
+      padding: 36px 24px 0 24px;
+      border-left: 0;
+      border-top: 1px solid var(--ink);
+      margin-bottom: 0;
+    }
+    .step::before { top: -6px; left: 0; }
+  }
+
+  /* ---------- DEPOIMENTOS ---------- */
+  .testimonials {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .testimonial {
+    margin: 0;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex; flex-direction: column;
+  }
+  @media (min-width: 1024px) {
+    .testimonials { grid-template-columns: repeat(3, 1fr); }
+    .testimonial {
+      padding: 48px 36px 40px;
+      border-right: 1px solid var(--line);
+      border-bottom: 0;
+      min-height: 380px;
+    }
+    .testimonial:last-child { border-right: 0; }
+  }
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 24px);
+    line-height: 1.35;
+    font-weight: 400;
+    color: var(--ink);
+    flex-grow: 1;
+    text-wrap: pretty;
+  }
+  .testimonial-svg { margin-bottom: 24px; }
+  .testimonial figcaption {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .testimonial-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .testimonial-role {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 6px;
+  }
+
+  /* ---------- CONTATO ---------- */
+  #contato { background: var(--bg-3); }
+  .contato-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (min-width: 1024px) { .contato-grid { grid-template-columns: 1fr 1.1fr; gap: 90px; } }
+  .contato h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 76px);
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+  .contato h2 em { font-style: italic; }
+  .contato-lead {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-top: 24px;
+    max-width: 460px;
+  }
+  .contato-rows { margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
+  .contato-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  @media (min-width: 768px) {
+    .contato-row { grid-template-columns: 120px 1fr; gap: 24px; align-items: baseline; padding-bottom: 16px; }
+    .contato-rows { margin-top: 44px; gap: 24px; }
+  }
+  .contato-row .label-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .contato-row .val { font-size: 17px; color: var(--ink); }
+  @media (min-width: 768px) { .contato-row .val { font-size: 18px; } }
+
+  .contato-form {
+    padding: 28px 24px 32px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  @media (min-width: 768px) {
+    .contato-form { padding: 40px 44px 44px; gap: 22px; }
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 768px) {
+    .form-row { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
+  .field-group { display: flex; flex-direction: column; }
+  .label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .field {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 200ms ease;
+    min-height: 44px;
+  }
+  .field:focus { border-color: var(--ink); }
+  .field::placeholder { color: var(--ink-mute); }
+  textarea.field { resize: vertical; min-height: 100px; }
+  select.field {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%238a7d6a' d='M0 0h10L5 6z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    padding-right: 22px;
+  }
+
+  .form-foot {
+    display: flex; flex-direction: column; gap: 14px;
+    margin-top: 6px;
+  }
+  @media (min-width: 768px) {
+    .form-foot { flex-direction: row; justify-content: space-between; align-items: center; margin-top: 8px; }
+  }
+  .form-note {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .form-foot .btn { width: 100%; }
+  @media (min-width: 768px) { .form-foot .btn { width: auto; } }
+
+  .form-success {
+    padding: 40px 24px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    min-height: 360px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  @media (min-width: 768px) { .form-success { padding: 60px 40px; min-height: 420px; } }
+  .form-success .eyebrow { color: var(--accent); margin-bottom: 14px; }
+  .form-success h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4.5vw, 36px);
+    line-height: 1.1;
+  }
+  .form-success h3 em { font-style: italic; }
+  .form-success p {
+    margin-top: 16px;
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.85);
+    padding: 64px 0 32px;
+  }
+  @media (min-width: 1024px) { .site-footer { padding: 90px 0 40px; } }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+  }
+  @media (min-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; padding-bottom: 56px; } }
+  @media (min-width: 1024px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 70px; } }
+
+  .site-footer .logo-name { color: #fff; }
+  .site-footer .logo-sub { color: rgba(255,255,255,0.78); }
+  .site-footer .logo-mark .stroke { stroke: #fff; }
+
+  .footer-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3.5vw, 28px);
+    line-height: 1.2;
+    color: var(--bg);
+    margin-top: 24px;
+    max-width: 380px;
+    font-weight: 300;
+  }
+  .footer-col-title {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 18px;
+  }
+  .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+  .footer-col a {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    word-break: break-word;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+  @media (min-width: 1024px) {
+    .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox {
+    position: fixed; inset: 0;
+    z-index: 100;
+    background: rgba(20, 16, 12, 0.94);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 240ms ease;
+  }
+  .lightbox[data-open="true"] { display: flex; opacity: 1; }
+  .lightbox-head {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    color: rgba(255,255,255,0.92);
+  }
+  @media (min-width: 768px) { .lightbox-head { padding: 24px 32px; } }
+  .lightbox-meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .lightbox-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3.4vw, 28px);
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+  }
+  .lightbox-sub {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .lightbox-counter {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.7);
+    flex-shrink: 0;
+  }
+  .lightbox-close {
+    appearance: none;
+    width: 44px; height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 200ms ease, border-color 200ms ease;
+    flex-shrink: 0;
+  }
+  .lightbox-close:hover, .lightbox-close:focus-visible {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  .lightbox-stage {
+    flex: 1 1 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 8px 16px 16px;
+    min-height: 0;
+  }
+  @media (min-width: 768px) { .lightbox-stage { padding: 8px 80px 16px; } }
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px; height: 48px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 200ms ease, transform 200ms ease;
+  }
+  .lightbox-nav:hover, .lightbox-nav:focus-visible { background: rgba(255,255,255,0.22); }
+  .lightbox-nav[aria-disabled="true"] { opacity: 0.35; pointer-events: none; }
+  .lightbox-nav.prev { left: 12px; }
+  .lightbox-nav.next { right: 12px; }
+  @media (min-width: 768px) {
+    .lightbox-nav { width: 56px; height: 56px; }
+    .lightbox-nav.prev { left: 20px; }
+    .lightbox-nav.next { right: 20px; }
+  }
+  .lightbox-nav svg { width: 18px; height: 18px; }
+
+  .lightbox-thumbs {
+    flex-shrink: 0;
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.25) transparent;
+  }
+  @media (min-width: 768px) { .lightbox-thumbs { padding: 16px 32px 24px; gap: 10px; } }
+  .lightbox-thumb {
+    appearance: none;
+    border: 0; padding: 0;
+    flex-shrink: 0;
+    width: 64px; height: 48px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(255,255,255,0.08);
+    opacity: 0.55;
+    transition: opacity 200ms ease, transform 200ms ease, outline 200ms ease;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  @media (min-width: 768px) { .lightbox-thumb { width: 84px; height: 60px; } }
+  .lightbox-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .lightbox-thumb:hover { opacity: 0.85; }
+  .lightbox-thumb[aria-current="true"] {
+    opacity: 1;
+    outline-color: #fff;
+  }
+
+  body.lb-open { overflow: hidden; }
+
+  /* ---------- Reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .img-hover:hover img { transform: none; filter: none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<header class="site-header hero-dark" id="siteHeader">
+  <div class="container-wide">
+    <div class="nav-inner">
+      <a class="logo" href="#top" aria-label="Livia Ciciliotti — Arquitetura, ir para o início">
+        <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <circle class="stroke" cx="18" cy="18" r="17" stroke="currentColor" stroke-width="0.8" opacity="0.45"/>
+          <path class="stroke" d="M11 9 L11 24 L19 24" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <path class="stroke" d="M25 12 a7 7 0 1 0 0 12" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <path d="M18 27 q3 -2 5 -1" stroke="#a8553a" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">
+          <span class="logo-name">Livia Ciciliotti</span>
+          <span class="logo-sub">Arquitetura</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a class="link-u" href="#sobre">Sobre</a>
+        <a class="link-u" href="#projetos">Projetos</a>
+        <a class="link-u" href="#servicos">Serviços</a>
+        <a class="link-u" href="#processo">Processo</a>
+        <a class="link-u" href="#palavra">Clientes</a>
+        <a class="nav-cta" href="#contato">
+          Vamos conversar
+          <svg class="btn-arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </nav>
+
+      <button class="menu-toggle" type="button" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer" data-open="false" aria-hidden="true">
+  <ul>
+    <li><a href="#sobre" data-mobile-link>Sobre</a></li>
+    <li><a href="#projetos" data-mobile-link>Projetos</a></li>
+    <li><a href="#servicos" data-mobile-link>Serviços</a></li>
+    <li><a href="#processo" data-mobile-link>Processo</a></li>
+    <li><a href="#palavra" data-mobile-link>Clientes</a></li>
+  </ul>
+  <a class="nav-cta" href="#contato" data-mobile-link>
+    Vamos conversar
+    <svg class="btn-arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-label="Apresentação">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="assets/img/hero.png"
+           alt=""
+           fetchpriority="high"
+           decoding="async">
+    </div>
+
+    <div class="container-wide hero-inner">
+      <div class="eyebrow hero-eyebrow">Livia Ciciliotti · Arquitetura · Interiores · Espírito Santo</div>
+      <h1 class="serif">Construir, criar e ser capaz de traduzir um sonho é uma <em>arte.</em></h1>
+
+      <div class="hero-bottom">
+        <p>Projetos feitos com escuta. Materiais honestos, luz natural, tempo certo. Atendimento presencial na Grande Vitória e Sul do Estado, e remoto para o Brasil inteiro.</p>
+        <div class="hero-actions">
+          <a class="btn btn-on-dark" href="#projetos">
+            Ver projetos
+            <svg class="btn-arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a class="btn btn-ghost-dark" href="#contato">Iniciar projeto</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-meta" aria-hidden="true">
+      Estúdio · 2026<br>
+      Vitória / Cachoeiro
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="line"></span>
+      Role para descobrir
+    </div>
+  </section>
+
+  <!-- ============ SOBRE ============ -->
+  <section id="sobre" aria-labelledby="sobre-title">
+    <div class="container-wide">
+      <div class="sobre-grid">
+        <div class="sobre-portrait img-hover">
+          <img src="assets/img/sobre.jpeg"
+               alt="Cozinha assinada por Livia Ciciliotti, com bancada em pedra e marcenaria amadeirada"
+               loading="lazy" decoding="async">
+          <div class="sobre-badge">
+            <span class="dot" aria-hidden="true"></span>
+            <span>CAU A123456-0 · 7 anos de atelier</span>
+          </div>
+        </div>
+
+        <div class="sobre-body">
+          <div class="eyebrow section-eyebrow">01 — Sobre o atelier</div>
+          <h2 id="sobre-title" class="serif">Acredito em projetos feitos de <em>conversa, tempo e materiais</em> que envelhecem bem.</h2>
+
+          <div class="sobre-paras">
+            <p>Sou Livia Ciciliotti, arquiteta formada pela UFES, com especialização em arquitetura de interiores. Trabalho de Vitória e Cachoeiro de Itapemirim, atendendo residências em todo o Espírito Santo.</p>
+            <p>Cada projeto começa por uma escuta cuidadosa — quem mora ali, como vive, o que sonha. Daí desenham-se ambientes que recebem com leveza, em uma paleta de madeira, fibra, pedra e luz natural.</p>
+          </div>
+
+          <div class="stats">
+            <div>
+              <div class="serif stat-num">80+</div>
+              <div class="stat-label">Projetos entregues</div>
+            </div>
+            <div>
+              <div class="serif stat-num">7</div>
+              <div class="stat-label">Anos de atelier</div>
+            </div>
+            <div>
+              <div class="serif stat-num">2</div>
+              <div class="stat-label">Bases — Vitória / Cachoeiro</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJETOS ============ -->
+  <section id="projetos" aria-labelledby="projetos-title">
+    <div class="container-wide">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow section-eyebrow">02 — Projetos selecionados</div>
+          <h2 id="projetos-title" class="serif">Cada casa, um <em>retrato</em>.</h2>
+        </div>
+        <p>Uma seleção dos últimos anos. Residências e interiores no Espírito Santo, pensados com calma — do partido inicial à última prateleira.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <button type="button" class="project-card img-hover layout-1" data-project="1" aria-label="Casa Iriri, Manguinhos, ES, 2025 — abrir galeria">
+          <img src="assets/img/projeto-01.png"
+               alt="Fachada da Casa Iriri em Manguinhos com volumes em madeira e concreto"
+               loading="lazy" decoding="async">
+          <div class="project-tag">Ver galeria <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="project-info">
+            <div>
+              <div class="serif project-name">Casa Iriri</div>
+              <div class="project-meta">Residencial · 240 m² · Manguinhos, ES</div>
+            </div>
+            <div class="project-year">2025</div>
+          </div>
+        </button>
+
+        <button type="button" class="project-card img-hover layout-2" data-project="2" aria-label="Casa VL, Vitória, ES, 2024 — abrir galeria">
+          <img src="assets/img/projeto-02.jpg"
+               alt="Sala integrada da Casa VL com tons neutros e marcenaria sob medida"
+               loading="lazy" decoding="async">
+          <div class="project-tag">Ver galeria <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="project-info">
+            <div>
+              <div class="serif project-name">Casa VL</div>
+              <div class="project-meta">Interiores · 110 m² · Vitória, ES</div>
+            </div>
+            <div class="project-year">2024</div>
+          </div>
+        </button>
+
+        <button type="button" class="project-card img-hover layout-3" data-project="3" aria-label="Quarto LV, Cachoeiro, ES, 2024 — abrir galeria">
+          <img src="assets/img/projeto-03.jpg"
+               alt="Quarto LV com paleta clara e cabeceira estofada"
+               loading="lazy" decoding="async">
+          <div class="project-tag">Ver galeria <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="project-info">
+            <div>
+              <div class="serif project-name">Quarto LV</div>
+              <div class="project-meta">Reforma · 65 m² · Cachoeiro, ES</div>
+            </div>
+            <div class="project-year">2024</div>
+          </div>
+        </button>
+
+        <button type="button" class="project-card img-hover layout-4" data-project="4" aria-label="Cozinha GC, Vila Velha, ES, 2023 — abrir galeria">
+          <img src="assets/img/projeto-04.jpeg"
+               alt="Cozinha GC com bancada em pedra e marcenaria amadeirada"
+               loading="lazy" decoding="async">
+          <div class="project-tag">Ver galeria <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="project-info">
+            <div>
+              <div class="serif project-name">Cozinha GC</div>
+              <div class="project-meta">Residencial · 320 m² · Vila Velha, ES</div>
+            </div>
+            <div class="project-year">2023</div>
+          </div>
+        </button>
+
+        <button type="button" class="project-card img-hover layout-5" data-project="5" aria-label="Banheiro Restaurante Itaunas, Guarapari, ES, 2023 — abrir galeria">
+          <img src="assets/img/projeto-05.png"
+               alt="Banheiro Restaurante Itaunas com revestimentos suaves e iluminação difusa"
+               loading="lazy" decoding="async">
+          <div class="project-tag">Ver galeria <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="project-info">
+            <div>
+              <div class="serif project-name">Banheiro Restaurante Itaunas</div>
+              <div class="project-meta">Residencial · 180 m² · Guarapari, ES</div>
+            </div>
+            <div class="project-year">2023</div>
+          </div>
+        </button>
+
+      </div>
+
+      <div class="projects-foot">
+        <span class="ig-line">Mais projetos no instagram <strong>@arqliviaciciliotti</strong></span>
+        <a class="btn btn-ghost" href="#contato">
+          Solicitar portfólio completo
+          <svg class="btn-arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVIÇOS ============ -->
+  <section id="servicos" aria-labelledby="servicos-title">
+    <div class="container-wide">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow section-eyebrow">03 — Como podemos trabalhar juntos</div>
+          <h2 id="servicos-title" class="serif">Três caminhos, um <em>cuidado</em>.</h2>
+        </div>
+        <p>Do projeto completo ao primeiro empurrão. Cada formato pensado para um momento diferente da sua casa.</p>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <div class="service-head">
+            <div class="service-num">01</div>
+          </div>
+          <h3 class="serif">Projeto de Interiores</h3>
+          <div class="service-sub">Completo, sob medida</div>
+          <p>Do briefing à execução: layout, marcenaria, iluminação, materiais, cronograma e acompanhamento de obra. Para residências novas ou reformas.</p>
+          <ul>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Estudo preliminar</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Projeto executivo</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Detalhamento de marcenaria</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Acompanhamento de obra</li>
+          </ul>
+        </article>
+
+        <article class="service">
+          <div class="service-head">
+            <div class="service-num">02</div>
+          </div>
+          <h3 class="serif">Consultoria</h3>
+          <div class="service-sub">Online ou presencial</div>
+          <p>Para quem quer melhorar um ambiente sem um projeto completo. Visita técnica, diagnóstico e um caderno de orientações com soluções práticas.</p>
+          <ul>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Visita única (2h)</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Caderno de orientações</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Lista de produtos</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Indicação de fornecedores</li>
+          </ul>
+        </article>
+
+        <article class="service">
+          <div class="service-head">
+            <div class="service-num">03</div>
+            <span class="service-badge">Novo</span>
+          </div>
+          <h3 class="serif">Projetos Pré-prontos</h3>
+          <div class="service-sub">Plantas e ambientes prontos para baixar</div>
+          <p>Plantas e ambientes já desenhados, com lista de materiais e medidas — uma ponte acessível entre o pronto-de-loja e o projeto sob medida.</p>
+          <ul>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Sala</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Cozinha</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Quarto</li>
+            <li><svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5 L4.5 7.5 L8.5 2.5" stroke="#a8553a" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>Home office</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESSO ============ -->
+  <section id="processo" aria-labelledby="processo-title">
+    <div class="container-wide">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow section-eyebrow">04 — Como trabalhamos</div>
+          <h2 id="processo-title" class="serif">Cinco passos, sem <em>pressa.</em></h2>
+        </div>
+        <p>O processo é o mesmo, mude o que mudar — uma casa nova ou só uma sala. A pressa nunca é boa conselheira de um projeto que dura.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-num">01</div>
+          <h4 class="serif">Conversa inicial</h4>
+          <p>Um café, presencial ou por vídeo. Entender quem mora, como vive, o que sonha — e o orçamento real.</p>
+        </li>
+        <li class="step">
+          <div class="step-num">02</div>
+          <h4 class="serif">Briefing &amp; medição</h4>
+          <p>Visita técnica ao imóvel, levantamento detalhado e construção de um briefing claro a quatro mãos.</p>
+        </li>
+        <li class="step">
+          <div class="step-num">03</div>
+          <h4 class="serif">Estudo preliminar</h4>
+          <p>Plantas, layouts, partido de materiais e referências. Aqui a casa começa a ter um rosto — e tempo para ajustar.</p>
+        </li>
+        <li class="step">
+          <div class="step-num">04</div>
+          <h4 class="serif">Projeto executivo</h4>
+          <p>Detalhamento técnico: marcenaria, iluminação, elétrica, hidráulica, especificações. Tudo o que a obra precisa.</p>
+        </li>
+        <li class="step">
+          <div class="step-num">05</div>
+          <h4 class="serif">Acompanhamento de obra</h4>
+          <p>Visitas semanais, conversa direta com a equipe e ajustes em tempo real. Até a última prateleira no lugar.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ DEPOIMENTOS ============ -->
+  <section id="palavra" aria-labelledby="palavra-title">
+    <div class="container-wide">
+      <div class="eyebrow section-eyebrow" style="margin-bottom: 24px;">05 — A palavra dos clientes</div>
+      <h2 id="palavra-title" class="visually-hidden" style="position:absolute;left:-9999px;">A palavra dos clientes</h2>
+
+      <div class="testimonials">
+        <figure class="testimonial">
+          <svg class="testimonial-svg" width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
+            <path d="M2 26 V14 C2 7 6 3 14 2 V6 C9 7 7 10 7 14 H14 V26 Z" fill="#a8553a"/>
+            <path d="M22 26 V14 C22 7 26 3 34 2 V6 C29 7 27 10 27 14 H34 V26 Z" fill="#a8553a"/>
+          </svg>
+          <blockquote class="serif testimonial-quote">A Livia escutou de verdade. Nossa casa virou um lugar que parece ter sido sempre nosso — só que melhor organizado, com mais luz e mais alma.</blockquote>
+          <figcaption>
+            <div class="testimonial-name">Mariana Velloso</div>
+            <div class="testimonial-role">Casa Litoral Norte · Manguinhos</div>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <svg class="testimonial-svg" width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
+            <path d="M2 26 V14 C2 7 6 3 14 2 V6 C9 7 7 10 7 14 H14 V26 Z" fill="#a8553a"/>
+            <path d="M22 26 V14 C22 7 26 3 34 2 V6 C29 7 27 10 27 14 H34 V26 Z" fill="#a8553a"/>
+          </svg>
+          <blockquote class="serif testimonial-quote">Fizemos uma consultoria de duas horas e mudou completamente o modo como vejo o apartamento. Levei meses pra absorver tudo o que ela apontou em uma tarde.</blockquote>
+          <figcaption>
+            <div class="testimonial-name">Renato Aguirre</div>
+            <div class="testimonial-role">Consultoria · Vitória</div>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <svg class="testimonial-svg" width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
+            <path d="M2 26 V14 C2 7 6 3 14 2 V6 C9 7 7 10 7 14 H14 V26 Z" fill="#a8553a"/>
+            <path d="M22 26 V14 C22 7 26 3 34 2 V6 C29 7 27 10 27 14 H34 V26 Z" fill="#a8553a"/>
+          </svg>
+          <blockquote class="serif testimonial-quote">O cuidado com cada detalhe da marcenaria foi impressionante. Recebemos a obra num cronograma rigoroso e com um acabamento que parece arte.</blockquote>
+          <figcaption>
+            <div class="testimonial-name">Família Bianchi</div>
+            <div class="testimonial-role">Residência Itapuã · Vila Velha</div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section id="contato" class="contato" aria-labelledby="contato-title">
+    <div class="container-wide">
+      <div class="contato-grid">
+        <div>
+          <div class="eyebrow section-eyebrow">06 — Vamos conversar</div>
+          <h2 id="contato-title" class="serif">Conte-me sobre <em>seu espaço.</em></h2>
+          <p class="contato-lead">Respondo cada mensagem pessoalmente, em até 48 horas. Se preferir, chame no Instagram — geralmente respondo mais rápido por lá.</p>
+
+          <div class="contato-rows">
+            <div class="contato-row">
+              <span class="label-mono">E-mail</span>
+              <a class="link-u val" href="mailto:liviavargas2610@gmail.com">liviavargas2610@gmail.com</a>
+            </div>
+            <div class="contato-row">
+              <span class="label-mono">Instagram</span>
+              <a class="link-u val" href="https://instagram.com/arqliviaciciliotti" target="_blank" rel="noopener noreferrer">@arqliviaciciliotti</a>
+            </div>
+            <div class="contato-row">
+              <span class="label-mono">Atendimento</span>
+              <span class="val">Presencial · Grande Vitória e Sul do Estado</span>
+            </div>
+            <div class="contato-row">
+              <span class="label-mono" aria-hidden="true">&nbsp;</span>
+              <span class="val">Remoto · Brasil inteiro</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="formWrapper">
+          <form class="contato-form" id="contatoForm" novalidate>
+            <div class="form-row">
+              <div class="field-group">
+                <label class="label" for="f-nome">01 · Seu nome</label>
+                <input class="field" id="f-nome" name="nome" type="text" required autocomplete="name"
+                       placeholder="Como gostaria de ser chamado(a)">
+              </div>
+              <div class="field-group">
+                <label class="label" for="f-email">02 · E-mail</label>
+                <input class="field" id="f-email" name="email" type="email" required autocomplete="email"
+                       placeholder="seu@email.com">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field-group">
+                <label class="label" for="f-cidade">03 · Cidade</label>
+                <input class="field" id="f-cidade" name="cidade" type="text" autocomplete="address-level2"
+                       placeholder="Vitória, ES">
+              </div>
+              <div class="field-group">
+                <label class="label" for="f-tipo">04 · Tipo de projeto</label>
+                <select class="field" id="f-tipo" name="tipo" defaultValue="">
+                  <option value="" disabled selected>Selecione</option>
+                  <option>Projeto de interiores completo</option>
+                  <option>Consultoria</option>
+                  <option>Projeto pré-pronto</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="label" for="f-msg">05 · Conte-me sobre o espaço</label>
+              <textarea class="field" id="f-msg" name="mensagem" rows="4"
+                        placeholder="Tamanho, momento da obra, prazos, o que sonha para a casa…"></textarea>
+            </div>
+            <div class="form-foot">
+              <span class="form-note" id="form-note">Resposta em até 48h</span>
+              <button type="submit" class="btn btn-primary" aria-describedby="form-note">
+                Enviar mensagem
+                <svg class="btn-arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container-wide">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="#top" aria-label="Livia Ciciliotti — Arquitetura, ir para o início">
+          <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <circle class="stroke" cx="18" cy="18" r="17" stroke="currentColor" stroke-width="0.8" opacity="0.45"/>
+            <path class="stroke" d="M11 9 L11 24 L19 24" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+            <path class="stroke" d="M25 12 a7 7 0 1 0 0 12" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+            <path d="M18 27 q3 -2 5 -1" stroke="#d68a55" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-text">
+            <span class="logo-name">Livia Ciciliotti</span>
+            <span class="logo-sub">Arquitetura</span>
+          </span>
+        </a>
+        <p class="footer-tag">Espaços que abraçam quem vive neles.</p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Navegação</div>
+        <ul>
+          <li><a class="link-u" href="#sobre">Sobre</a></li>
+          <li><a class="link-u" href="#projetos">Projetos</a></li>
+          <li><a class="link-u" href="#servicos">Serviços</a></li>
+          <li><a class="link-u" href="#processo">Processo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Contato</div>
+        <ul>
+          <li><a class="link-u" href="mailto:liviavargas2610@gmail.com">liviavargas2610@gmail.com</a></li>
+          <li><a class="link-u" href="https://instagram.com/arqliviaciciliotti" target="_blank" rel="noopener noreferrer">@arqliviaciciliotti</a></li>
+          <li><a class="link-u" href="#contato">Presencial · Grande Vitória e Sul do ES</a></li>
+          <li><a class="link-u" href="#contato">Remoto · Brasil inteiro</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Atelier</div>
+        <ul>
+          <li><a class="link-u" href="#contato">Agendar consulta</a></li>
+          <li><a class="link-u" href="#contato">Briefing online</a></li>
+          <li><a class="link-u" href="#contato">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Livia Ciciliotti Arquitetura</span>
+      <span>CAU A123456-0 · Espírito Santo, Brasil</span>
+      <span>Feito com cuidado em Vitória</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" data-open="false" role="dialog" aria-modal="true" aria-labelledby="lb-title" aria-hidden="true">
+  <div class="lightbox-head">
+    <div class="lightbox-meta">
+      <span class="lightbox-title" id="lb-title"></span>
+      <span class="lightbox-sub" id="lb-sub"></span>
+    </div>
+    <span class="lightbox-counter" id="lb-counter" aria-live="polite"></span>
+    <button type="button" class="lightbox-close" id="lb-close" aria-label="Fechar galeria">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M3 3 L15 15 M15 3 L3 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="lightbox-stage">
+    <button type="button" class="lightbox-nav prev" id="lb-prev" aria-label="Foto anterior">
+      <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M11 3 L5 9 L11 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <img class="lightbox-image" id="lb-image" alt="">
+    <button type="button" class="lightbox-nav next" id="lb-next" aria-label="Próxima foto">
+      <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M7 3 L13 9 L7 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="lightbox-thumbs" id="lb-thumbs" role="tablist" aria-label="Miniaturas da galeria"></div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---------- Galerias dos projetos ----------
+  const PROJECTS = {
+    '1': {
+      title: 'Casa Iriri',
+      sub: 'Residencial · 240 m² · Manguinhos, ES · 2025',
+      dir: 'assets/img/p1', ext: 'png', count: 20,
+    },
+    '2': {
+      title: 'Casa VL',
+      sub: 'Interiores · 110 m² · Vitória, ES · 2024',
+      dir: 'assets/img/p2', ext: 'jpg', count: 9,
+    },
+    '3': {
+      title: 'Quarto LV',
+      sub: 'Reforma · 65 m² · Cachoeiro, ES · 2024',
+      dir: 'assets/img/p3', exts: ['jpg','jpg','png','png','png','png','png','png','png'], count: 9,
+    },
+    '4': {
+      title: 'Cozinha GC',
+      sub: 'Residencial · 320 m² · Vila Velha, ES · 2023',
+      dir: 'assets/img/p4', ext: 'jpeg', count: 6,
+    },
+    '5': {
+      title: 'Banheiro Restaurante Itaunas',
+      sub: 'Residencial · 180 m² · Guarapari, ES · 2023',
+      dir: 'assets/img/p5', ext: 'png', count: 4,
+    },
+  };
+
+  function imageUrl(p, i) {
+    const n = String(i + 1).padStart(2, '0');
+    const ext = p.exts ? p.exts[i] : p.ext;
+    return p.dir + '/' + n + '.' + ext;
+  }
+
+  // ---------- Header / Nav ----------
+  const header = document.getElementById('siteHeader');
+  const toggle = document.getElementById('menuToggle');
+  const drawer = document.getElementById('mobileDrawer');
+  const heroSection = document.querySelector('.hero');
+
+  // Scroll: aplica .scrolled e tira "hero-dark" depois do hero
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    requestAnimationFrame(() => {
+      const y = window.scrollY || window.pageYOffset;
+      header.classList.toggle('scrolled', y > 40);
+
+      if (heroSection) {
+        const heroEnd = heroSection.offsetTop + heroSection.offsetHeight - 80;
+        header.classList.toggle('hero-dark', y < heroEnd);
+      }
+      ticking = false;
+    });
+    ticking = true;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Drawer mobile
+  function setDrawer(open) {
+    drawer.dataset.open = open ? 'true' : 'false';
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  toggle.addEventListener('click', () => {
+    const open = drawer.dataset.open !== 'true';
+    setDrawer(open);
+  });
+  drawer.querySelectorAll('[data-mobile-link]').forEach((a) => {
+    a.addEventListener('click', () => setDrawer(false));
+  });
+  // Esc fecha o drawer
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.dataset.open === 'true') setDrawer(false);
+  });
+
+  // ---------- Lightbox ----------
+  const lb = document.getElementById('lightbox');
+  const lbTitle = document.getElementById('lb-title');
+  const lbSub = document.getElementById('lb-sub');
+  const lbCounter = document.getElementById('lb-counter');
+  const lbImage = document.getElementById('lb-image');
+  const lbPrev = document.getElementById('lb-prev');
+  const lbNext = document.getElementById('lb-next');
+  const lbThumbs = document.getElementById('lb-thumbs');
+  const lbClose = document.getElementById('lb-close');
+
+  let currentProject = null;
+  let currentIndex = 0;
+  let lastFocused = null;
+
+  function buildThumbs(p) {
+    lbThumbs.replaceChildren();
+    for (let i = 0; i < p.count; i++) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'lightbox-thumb';
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-label', 'Ir para foto ' + (i + 1));
+      btn.dataset.index = String(i);
+      const img = document.createElement('img');
+      img.src = imageUrl(p, i);
+      img.alt = '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      btn.appendChild(img);
+      btn.addEventListener('click', () => showAt(i));
+      lbThumbs.appendChild(btn);
+    }
+  }
+
+  function showAt(i) {
+    if (!currentProject) return;
+    const p = currentProject;
+    currentIndex = (i + p.count) % p.count;
+    lbImage.src = imageUrl(p, currentIndex);
+    lbImage.alt = p.title + ' — foto ' + (currentIndex + 1) + ' de ' + p.count;
+    lbCounter.textContent = String(currentIndex + 1).padStart(2, '0') + ' / ' + String(p.count).padStart(2, '0');
+    Array.from(lbThumbs.children).forEach((btn, idx) => {
+      btn.setAttribute('aria-current', idx === currentIndex ? 'true' : 'false');
+      if (idx === currentIndex) btn.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    });
+  }
+
+  function openLightbox(id, trigger) {
+    const p = PROJECTS[id];
+    if (!p) return;
+    currentProject = p;
+    lastFocused = trigger || document.activeElement;
+    lbTitle.textContent = p.title;
+    lbSub.textContent = p.sub;
+    buildThumbs(p);
+    lb.dataset.open = 'true';
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lb-open');
+    showAt(0);
+    setTimeout(() => lbClose.focus(), 50);
+  }
+
+  function closeLightbox() {
+    lb.dataset.open = 'false';
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lb-open');
+    lbImage.src = '';
+    currentProject = null;
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+
+  document.querySelectorAll('.project-card[data-project]').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(card.dataset.project, card);
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => showAt(currentIndex - 1));
+  lbNext.addEventListener('click', () => showAt(currentIndex + 1));
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb || e.target.classList.contains('lightbox-stage')) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lb.dataset.open !== 'true') return;
+    if (e.key === 'Escape') { e.preventDefault(); closeLightbox(); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); showAt(currentIndex + 1); }
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); showAt(currentIndex - 1); }
+  });
+
+  // Swipe touch (mobile)
+  let touchX = null;
+  lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', (e) => {
+    if (touchX == null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) showAt(currentIndex + (dx < 0 ? 1 : -1));
+    touchX = null;
+  });
+
+  // Form: estado de sucesso (substitui form por mensagem)
+  const form = document.getElementById('contatoForm');
+  const wrapper = document.getElementById('formWrapper');
+  if (form && wrapper) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const success = document.createElement('div');
+      success.className = 'form-success';
+      success.setAttribute('role', 'status');
+      success.setAttribute('aria-live', 'polite');
+      success.innerHTML =
+        '<div class="eyebrow">Mensagem recebida</div>' +
+        '<h3 class="serif">Obrigada. Respondo em até <em>48 horas.</em></h3>' +
+        '<p>Enquanto isso, sinta-se em casa pelo portfólio do Instagram.</p>';
+      wrapper.replaceChildren(success);
+      success.focus?.();
+    });
+  }
+})();
+</script>
+</body>
+</html>
