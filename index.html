@@ -721,6 +721,7 @@
     .service { padding: 44px 28px 52px; border-bottom: 0; border-right: 1px solid var(--line); }
     .service:nth-child(2n) { border-right: 0; }
     .service:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .service p { min-height: 99px; }
   }
   @media (min-width: 1024px) {
     .services { grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
@@ -765,10 +766,8 @@
     font-size: 15px;
     line-height: 1.65;
     color: var(--ink-soft);
-    flex-grow: 1;
   }
   .service ul {
-    margin-top: auto;
     padding-top: 24px;
     display: flex; flex-direction: column; gap: 0;
   }
